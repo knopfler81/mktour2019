@@ -17,6 +17,8 @@ class ConcertsController < ApplicationController
 		@concert = Concert.new(concert_params)
 		if @concert.save
 			redirect_to concerts_path
+		else
+			render :new, alert: "Olalala tu fais de merde ou quoi ??? "
 		end
 	end
 

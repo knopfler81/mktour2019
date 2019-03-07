@@ -16,7 +16,7 @@
 						<% @concerts.each do |concert| %>
 					  <tr>
 							<td><%= concert.city %></td>
-							<td><%= concert.show_date %></td>
+							<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
 							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
 						<% end %>
 					</tr>
