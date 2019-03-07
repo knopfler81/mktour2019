@@ -1,6 +1,6 @@
-//= require turbolinks
 //= require jquery
 //= require rails-ujs
+//= require turbolinks
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -12,4 +12,12 @@ $(document).on('turbolinks:load', function() {
 		$('#not-going').on('click', function(){
 			location.reload();
 		})
+
+ 
+
+});
+
+
+$(document).ready(function () {
+  $('[data-toggle="tooltip"]').tooltip()
 });

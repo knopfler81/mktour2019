@@ -2,7 +2,8 @@ Rails.application.routes.draw do
  devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'concerts#index'
 
-
+  get "/home", to: "pages#home"
+  
   resources :users, only: :show
 
   resources :concerts do

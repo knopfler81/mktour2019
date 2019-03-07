@@ -34,3 +34,30 @@
 	padding: 20px;
 	background-color: #fff;
 }
+
+	.footer {
+		padding-left: 60px;
+		background: #111;
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;
+	  height: 70px; /* Set the fixed height of the footer here */
+	  line-height: 60px; /* Vertically center the text there */
+
+	  a {
+	  	color: #fff;
+	  }
+
+	  a:hover {
+	  	text-decoration: none;
+	  }
+		.fa-heart {
+			color: red;
+			font-size: 15px;
+		}
+	}
+
+
+section {
+	margin-bottom: 50px;
+}
