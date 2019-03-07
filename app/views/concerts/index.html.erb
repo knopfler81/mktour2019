@@ -13,8 +13,8 @@
 			<table class="table table-striped">
 
 				<tbody>
-					<tr>
 						<% @concerts.each do |concert| %>
+					  <tr>
 							<td><%= concert.city %></td>
 							<td><%= concert.show_date %></td>
 							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
