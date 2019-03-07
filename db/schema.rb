@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_133627) do
+ActiveRecord::Schema.define(version: 2019_03_07_151652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "concert_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["concert_id"], name: "index_comments_on_concert_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "concerts", force: :cascade do |t|
+    t.string "city"
+    t.date "show_date"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "concerts_users", force: :cascade do |t|
+    t.bigint "concert_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["concert_id"], name: "index_concerts_users_on_concert_id"
+    t.index ["user_id"], name: "index_concerts_users_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +50,14 @@ ActiveRecord::Schema.define(version: 2019_03_07_133627) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "concerts_users", "concerts"
+  add_foreign_key "concerts_users", "users"
 end
