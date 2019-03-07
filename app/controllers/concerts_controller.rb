@@ -1,5 +1,7 @@
 class ConcertsController < ApplicationController
 
+	before_action :authenticate_user! only: [:new, :create]
+
 	def index
 		@concerts = Concert.order('show_date ASC')
 	end

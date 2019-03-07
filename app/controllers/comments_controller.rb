@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
 	before_action :find_concert
+	before_action :authenticate_user!
 
 	def new
 		@comment =  Comment.new
