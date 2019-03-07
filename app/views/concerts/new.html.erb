@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<br><br>
+
+			<h1>AJOUTER UN CONCERT</h1>
+			<hr>
+
+			<br>
+			<%= simple_form_for @concert do  |f| %>
+
+				<%= f.input :city , label: false , placeholder: "Ville du concert" %>
+				<%= f.input :show_date, label: false , hint: "Date du concert"  %>
+				<%= f.submit "Valider", class: "btn btn-primary" %>
+			<% end %>
+
+			</div>
+	</div>
+</div>
