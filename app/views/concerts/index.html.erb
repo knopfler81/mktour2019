@@ -9,6 +9,8 @@
 
 			<p>Envie d'organiser une rencontre avec d'autres fans? </p>
 			<p>Retrouvez vos concerts dans la liste ci-dessous, ouvrez et discutez!</p>
+			<p><i>Et surtout restez cool........</i> 😇</p>
+			<br>
 			
 			<table class="table table-striped">
 
@@ -16,6 +18,7 @@
 						<% @concerts.each do |concert| %>
 					  <tr>
 							<td><%= concert.city %></td>
+							<td><%= concert.venue %></td>
 							<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
 							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
 						<% end %>

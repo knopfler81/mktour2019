@@ -2,7 +2,8 @@
 	<br><br>
 	<div class="row">
 		<div class="col-12 col-md-8 offset-md-1">
-			<h1><%= @concert.city %>, le <%= l(@concert.show_date, format: '%d/%m/%y') %></h1>
+			<h1><%= @concert.venue %> -  <%= @concert.city %> </h1>
+			<h3>Le <%= l(@concert.show_date, format: '%d/%m/%y') %></h3>
 			<hr>
 
 			<% if @concert.comments.any? %>
