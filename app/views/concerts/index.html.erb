@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+
+			<h1>TOURNEE DOWN THE ROAD WHEREVER 2019</h1>
+			<hr>
+			<br><br>
+
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Ville</th>
+						<th>Date</th>
+						<th>voir</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<% @concerts.each do |concert| %>
+							<td><%= concert.city %></td>
+							<td><%= concert.show_date %></td>
+							<td><%= link_to 'voir', concert_path(concert)  %></td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

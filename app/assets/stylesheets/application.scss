@@ -11,3 +11,26 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.comments {
+		padding: 20px;
+		background-color :#aaa;
+		margin-bottom: 20px;
+		border-radius: 20px;
+
+}
+
+
+.my-comments {
+	padding: 20px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	border-radius: 20px;
+
+}
+
+.users {
+	padding: 20px;
+	background-color: #fff;
+}

@@ -1,0 +1,69 @@
+<div class="content">
+	<br><br>
+	<div class="row">
+		<div class="col-12 col-md-8 offset-md-1">
+			<h1>Discussion pour le concert de <%= @concert.city %>, le <%= @concert.show_date %></h1>
+			<hr>
+
+			<% @concert.comments.each do |c| %>
+				<div class="<%= c.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
+					<div class="row">
+						<div class="col-6">
+								<%= c.user.email %>
+						</div>
+						<div class="col-3 offset-3">
+							 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+						</div>
+					</div>
+					<hr>
+					<%= simple_format(c.content) %>
+				</div>
+			<% end %>
+
+			<div class="row">
+				<div class="col-8 offset-2">
+					<% if @concert.users.include?(current_user) %>
+						<%= simple_form_for([@concert, @comment]) do |f| %>
+							<%= f.input :content, as: :text, placeholder: "Votre commentaire", label: false,  input_html: { rows: 3 	} %>
+							<%= f.submit "Envoyer", class: "btn btn-success" %>
+						<% end %>
+					<% end %>
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12 col-md-2">
+			<% if current_user %>
+				<% if @concert.users.include?(current_user) %>
+
+				<h3>Participants: </h3>
+				<hr>
+				
+					<%= form_tag unsubscribe_concert_path(@concert), method: :put, remote: true do %>
+					 	<%= hidden_field_tag :user_id, current_user.id %>
+					 	<%= submit_tag "Je n'y vais plus", class:  "btn btn-danger", id: "not-going" %>
+					<% end %>
+					<% else %>
+
+					<%= form_tag register_concert_path(@concert), method: :put, remote: true do %>
+					 	<%= hidden_field_tag :user_id, current_user.id %>
+					 	<%= submit_tag "J'y vais", class:  "btn btn-primary", id: "going" %>
+					<% end %>
+				<% end %>
+
+			<br>
+			
+			<% if @concert.users.any? %>
+				<div class="users">
+					<% @concert.users.each do |user| %>
+						<%= user.first_name %>
+					<% end %>
+				</div>
+			<% end %>
+			<% else %>
+				<%= link_to "S'inscrire pour commenter", new_user_registration_path, class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
