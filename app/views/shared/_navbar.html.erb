@@ -12,6 +12,9 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
+          <% if current_user.admin? %>
+            <%=  link_to "Ajouter un concert", new_concert_path, class: "list-item"  %>
+          <% end %>
         <li class="nav-item dropdown">
          <%=  link_to "#", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do  %>
           <i class="fas fa-user" style="font-size: 30px"></i>
