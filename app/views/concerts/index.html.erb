@@ -1,26 +1,23 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
+			<br><br>
 
 			<h1>TOURNEE DOWN THE ROAD WHEREVER 2019</h1>
 			<hr>
 			<br><br>
 
+			<p>Envie d'organiser une rencontre avec d'autres fans? </p>
+			<p>Retrouvez vos concerts dans la liste ci-dessous, ouvrez et discutez!</p>
 			
 			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Ville</th>
-						<th>Date</th>
-						<th>voir</th>
-					</tr>
-				</thead>
+
 				<tbody>
 					<tr>
 						<% @concerts.each do |concert| %>
 							<td><%= concert.city %></td>
 							<td><%= concert.show_date %></td>
-							<td><%= link_to 'voir', concert_path(concert)  %></td>
+							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
 						<% end %>
 					</tr>
 				</tbody>

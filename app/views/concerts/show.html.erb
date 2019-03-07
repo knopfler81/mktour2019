@@ -2,22 +2,27 @@
 	<br><br>
 	<div class="row">
 		<div class="col-12 col-md-8 offset-md-1">
-			<h1>Discussion pour le concert de <%= @concert.city %>, le <%= @concert.show_date %></h1>
+			<h1><%= @concert.city %>, le <%= @concert.show_date %></h1>
 			<hr>
 
-			<% @concert.comments.each do |c| %>
-				<div class="<%= c.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
-					<div class="row">
-						<div class="col-6">
-								<%= c.user.email %>
+			<% if @concert.comments.any? %>
+				<% @concert.comments.each do |c| %>
+					<div class="<%= c.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
+						<div class="row">
+							<div class="col-6">
+									<%= c.user.email %>
+							</div>
+							<div class="col-3 offset-3">
+								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+							</div>
 						</div>
-						<div class="col-3 offset-3">
-							 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
-						</div>
+						<hr>
+						<%= simple_format(c.content) %>
 					</div>
-					<hr>
-					<%= simple_format(c.content) %>
-				</div>
+				<% end %>
+				<% else %>
+				<p>Soyez le premier à commenter</p>
+				
 			<% end %>
 
 			<div class="row">
@@ -56,9 +61,12 @@
 			
 			<% if @concert.users.any? %>
 				<div class="users">
+					<ul class="list list-unstyled">
 					<% @concert.users.each do |user| %>
-						<%= user.first_name %>
+						<li><%= user.full_name %></li>
 					<% end %>
+						
+					</ul>
 				</div>
 			<% end %>
 			<% else %>
