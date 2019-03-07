@@ -4,6 +4,8 @@ class Concert < ApplicationRecord
 
 
 	validates :city, presence: true
+  validates :venue, presence: true
+ 	validates :kountry, presence: true
 
 	validates :show_date, presence: true, uniqueness: true
 end
