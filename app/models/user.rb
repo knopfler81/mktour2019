@@ -7,6 +7,6 @@ class User < ApplicationRecord
 	has_and_belongs_to_many :concerts
 
 	def full_name
-	  "#{self.first_name}.capitalize  #{self.last_name}.capitalize"
+	  "#{self.first_name.capitalize } #{self.last_name.capitalize }"
 	end
 end
