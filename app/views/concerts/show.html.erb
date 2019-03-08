@@ -44,8 +44,6 @@
 			<% if current_user %>
 				<% if @concert.users.include?(current_user) %>
 
-				<h3>Participants: </h3>
-				<hr>
 				
 					<%= form_tag unsubscribe_concert_path(@concert), method: :put, remote: true do %>
 					 	<%= hidden_field_tag :user_id, current_user.id %>
@@ -60,7 +58,8 @@
 				<% end %>
 
 			<br>
-			
+			<h3>Participants: </h3>
+			<hr>
 			<% if @concert.users.any? %>
 				<div class="users">
 					<ul class="list list-unstyled">
