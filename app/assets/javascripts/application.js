@@ -1,6 +1,8 @@
 //= require jquery
+//= require best_in_place
 //= require rails-ujs
 //= require turbolinks
+//= require best_in_place.jquery-ui
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -19,5 +21,5 @@ $(document).on('turbolinks:load', function() {
 
 
 $(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+   jQuery(".best_in_place").best_in_place();
 });

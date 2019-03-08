@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to landing_path, class: "navbar-brand" do %>
     MK-Tour-2019
     <% end %>
 
@@ -10,10 +10,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to   "Les concerts", concerts_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <% if current_user.admin? %>
-            <%=  link_to "Ajouter un concert", new_concert_path, class: "list-item"  %>
+            <%=  link_to "Ajouter un concert", new_concert_path, class: "nav-link"  %>
           <% end %>
         <li class="nav-item dropdown">
          <%=  link_to "#", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do  %>

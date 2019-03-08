@@ -3,8 +3,6 @@ class ConcertsController < ApplicationController
 	def index
 		filter_concerts if params[:query].present?
 		@concerts ||= Concert.order('show_date ASC')
-
-
 	end
 
 	def show
@@ -29,12 +27,26 @@ class ConcertsController < ApplicationController
 		@concert = Concert.find(params[:id])
 	end
 
-	def update
-		@concert = Concert.find(params[:id])
-		if @concert.update_attributes(concert_params)
-			redirect_to @concert, notice: "Good"
+	#def update
+		# @concert = Concert.find(params[:id])
+		# if @concert.update_attributes(concert_params)
+		# 	redirect_to @concert, notice: "Good"
+		# end
+		def update
+			@concert = Concert.find(params[:concert_id])
+		  @comment = Comment.find params[:id]
+
+		  respond_to do |format|
+		    if @comment.update(update_comment_params)
+		      format.html { redirect_to(@concert, notice: 'Comment was successfully updated.') }
+		      format.json { respond_with_bip(@concert) }
+		    else
+		      format.html { render action: "edit" }
+		      format.json { respond_with_bip(@concert) }
+		    end
+		  end
 		end
-	end
+#	end
 
 	def register
 	  @concert = Concert.find(params[:id])

@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 
 gem 'jquery-rails'
 gem 'meta-tags'
+gem 'best_in_place', '~> 3.0.1'
 
 
 group :development do

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'concerts#index'
 
   get "/home", to: "pages#home"
+  get "/landing", to: "pages#landing"
   
   resources :users, only: [:show, :index]
 

@@ -47,6 +47,8 @@
 
 	  a {
 	  	color: #fff;
+
+
 	  }
 
 	  a:hover {
@@ -75,4 +77,52 @@ section {
 
 .input-search {
 	width: 300px!important;
+}
+
+
+.users {
+	color: #111;
+	background-color: transparent!important;
+}
+
+.users:hover {
+	color: #111;
+	text-decoration: none;
+}
+
+.landing-image {
+	position: relative;
+	background-image: url("https://s3-eu-west-1.amazonaws.com/markinsum/P1110222.JPG");
+	background-repeat            : no-repeat center center fixed;
+	-o-background-size           : cover;
+	-moz-background-size         : cover;
+	-webkit-background-size      : cover;
+	-webkit-filter               : grayscale(40%);
+	background-size              : cover;
+	background-position          : center;
+	height                       : 100vh;
+	color: #fff;
+}
+
+
+.welcome-text {
+	top: 400px;
+	position: absolute;
+	padding: 50px;
+	color: #fff;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.3);
+ 	h1 {
+		font-size: 100px;
+	}
+}
+
+
+@media screen and (max-width : 720px){
+  .welcome-text{
+  	 	h1 {
+  			font-size: 30px;
+  		}
+
+  }
 }

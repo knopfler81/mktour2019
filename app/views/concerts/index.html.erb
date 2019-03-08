@@ -35,8 +35,13 @@
 						<% @concerts.each do |concert| %>
 					  <tr>
 					  		<td><%= link_to  concert_path(concert), class: "btn btn-primary" do %>
-					  		<i class="fa fa-eye"></i>
-					  		<% end %></td>
+						  		<i class="fa fa-eye"></i>
+						  		<% end %>
+					  		</td>
+					  		<td><%= link_to concert_path(concert), class: "users"  do   %>
+					  			 <b><%= concert.users.count %></b> - <i class="fas fa-users"></i> 
+					  			<% end %>
+					  		</td>
 								<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
 								<td><%= concert.kountry %></td>
 								<td><%= concert.city %></td>

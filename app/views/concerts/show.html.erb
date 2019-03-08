@@ -7,18 +7,19 @@
 			<hr>
 
 			<% if @concert.comments.any? %>
-				<% @concert.comments.each do |c| %>
-					<div class="<%= c.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
+				<% @concert.comments.each do |comment| %>
+					<div class="<%= comment.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
 						<div class="row">
 							<div class="col-6">
-									<%= c.user.full_name %>
+									<%= comment.user.full_name %>
 							</div>
 							<div class="col-3 offset-3">
-								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+								 <%= l(comment.created_at, format: '%d/%m/%y - %H:%M:%S') %>
 							</div>
 						</div>
 						<hr>
-						<%= simple_format(c.content) %>
+						<%= simple_format(comment.content) %>
+						<%#= best_in_place(comment.concert, :content, as: :textarea) %>
 					</div>
 				<% end %>
 				<% else %>
