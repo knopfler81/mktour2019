@@ -14,7 +14,7 @@
 									<%= c.user.email %>
 							</div>
 							<div class="col-3 offset-3">
-								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %> - <%= link_to "Modifier", edit_concert_comment_path(c), remote: true %>
+								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
 							</div>
 						</div>
 						<hr>
@@ -48,13 +48,13 @@
 				
 					<%= form_tag unsubscribe_concert_path(@concert), method: :put, remote: true do %>
 					 	<%= hidden_field_tag :user_id, current_user.id %>
-					 	<%= submit_tag "Je n'y vais plus", class:  "btn btn-danger", id: "not-going" %>
+					 	<%= submit_tag "Je n'y vais plus", class:  "btn btn-danger", id: "not-going", data: {confirm: "Voulez vous vraiment vous désinscrire de ce concert?"} %>
 					<% end %>
 					<% else %>
 
 					<%= form_tag register_concert_path(@concert), method: :put, remote: true do %>
 					 	<%= hidden_field_tag :user_id, current_user.id %>
-					 	<%= submit_tag "J'y vais", class:  "btn btn-primary", id: "going" %>
+					 	<%= submit_tag "Je vais à ce concert", class:  "btn btn-primary", id: "going" %>
 					<% end %>
 				<% end %>
 

@@ -5,20 +5,26 @@
 
 			<h1>TOURNEE DOWN THE ROAD WHEREVER 2019</h1>
 			<hr>
-			<br><br>
-
-
-			<p>Envie d'organiser une rencontre avec d'autres fans? </p>
-			<p>Retrouvez vos concerts dans la liste ci-dessous, ouvrez et discutez!</p>
-			<p><i>Et surtout restez cool........</i> 😇</p>
+			<br>
+			<p>Envie d'organiser une rencontre avec d'autres fans? Retrouvez vos concerts dans la liste ci-dessous, ouvrez et discutez!</p>
 			<br>
 
-			 <%= simple_form_for :query, url: concerts_path, method: :get,  html: {class: "form-inline"} do |f| %>
-       <%= f.input  :keyword, placeholder: "Rechercher par pays ou ville", label: false, input_html: {class: "input-search"} %>
-       <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
-         <i class="fa fa-search"></i>
-       <% end %>
-     <% end %>
+
+			<div class="row">
+				<div class="col-4">
+					 <%= simple_form_for :query, url: concerts_path, method: :get,  html: {class: "form-inline"} do |f| %>
+		       <%= f.input  :keyword, placeholder: "Rechercher par pays ou ville", label: false, input_html: {class: "input-search"} %>
+		       <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+		         <i class="fa fa-search"></i>
+		       <% end %>
+		     <% end %>
+				</div>
+				<div class="col-4">
+    			 <%= link_to "Raffraichir les recherches", root_path, class: "btn btn-warning" %>
+					
+				</div>
+			</div>
+
 
      <br>
 			
