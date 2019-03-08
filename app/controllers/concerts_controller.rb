@@ -1,7 +1,8 @@
 class ConcertsController < ApplicationController
 
 	def index
-		@concerts = Concert.order('show_date ASC')
+		filter_concerts if params[:query].present?
+		@concerts ||= Concert.order('show_date ASC')
 	end
 
 	def show
@@ -49,5 +50,12 @@ class ConcertsController < ApplicationController
 	private
 	def concert_params
 		params.require(:concert).permit(:id, :show_date, :venue, :kountry, :city)
+	end
+
+
+	def filter_concerts
+		return if params[:query].blank?
+		@concerts = Concert.where('lower(kountry) LIKE ?', "%#{params[:query][:keyword].downcase }%")
+			.or(Concert.where('lower(city) LIKE ?', "%#{params[:query][:keyword].downcase }%"))
 	end
 end

@@ -7,19 +7,29 @@
 			<hr>
 			<br><br>
 
+
 			<p>Envie d'organiser une rencontre avec d'autres fans? </p>
 			<p>Retrouvez vos concerts dans la liste ci-dessous, ouvrez et discutez!</p>
 			<p><i>Et surtout restez cool........</i> 😇</p>
 			<br>
+
+			 <%= simple_form_for :query, url: concerts_path, method: :get,  html: {class: "form-inline"} do |f| %>
+       <%= f.input  :keyword, placeholder: "Rechercher par pays ou ville", label: false, input_html: {class: "input-search"} %>
+       <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+         <i class="fa fa-search"></i>
+       <% end %>
+     <% end %>
+
+     <br>
 			
 			<table class="table table-striped">
 
 				<tbody>
 						<% @concerts.each do |concert| %>
 					  <tr>
-							<td><%= concert.venue %></td>
-							<td><%= concert.city %></td>
 							<td><%= concert.kountry %></td>
+							<td><%= concert.city %></td>
+							<td><%= concert.venue %></td>
 							<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
 							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
 						<% end %>
