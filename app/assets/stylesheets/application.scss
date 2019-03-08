@@ -53,8 +53,14 @@
 	  	text-decoration: none;
 	  }
 		.fa-heart {
+			color: #006DE7;
+			font-size: 20px;
+		}
+
+		.fa-heart:hover {
 			color: red;
-			font-size: 15px;
+			font-size: 30px;
+			transition: 0.5s;
 		}
 	}
 
