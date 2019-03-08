@@ -106,9 +106,9 @@ section {
 
 
 .welcome-text {
-	top: 400px;
+	top: 40%;
 	position: absolute;
-	padding: 50px;
+	padding: 40px;
 	color: #fff;
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.3);
@@ -120,6 +120,7 @@ section {
 
 @media screen and (max-width : 720px){
   .welcome-text{
+  	top: 30%;
   	 	h1 {
   			font-size: 30px;
   		}
