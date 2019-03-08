@@ -11,7 +11,7 @@
 
 
 			<div class="row">
-				<div class="col-4">
+				<div class="col-12 col-md-6">
 					 <%= simple_form_for :query, url: concerts_path, method: :get,  html: {class: "form-inline"} do |f| %>
 		       <%= f.input  :keyword, placeholder: "Rechercher par pays ou ville", label: false, input_html: {class: "input-search"} %>
 		       <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
@@ -19,7 +19,7 @@
 		       <% end %>
 		     <% end %>
 				</div>
-				<div class="col-4">
+				<div class="col-12 col-md-6">
     			 <%= link_to "Raffraichir les recherches", root_path, class: "btn btn-warning" %>
 					
 				</div>
@@ -33,13 +33,16 @@
 				<tbody>
 						<% @concerts.each do |concert| %>
 					  <tr>
-							<td><%= concert.kountry %></td>
-							<td><%= concert.city %></td>
-							<td><%= concert.venue %></td>
-							<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
-							<td><%= link_to 'Ouvrir', concert_path(concert)  %></td>
-						<% end %>
+					  		<%= link_to  concert_path(concert) do %>
+					  		<td><i class="fa fa-eye"></i></td>
+					  		<% end %>
+								<td><%= concert.kountry %></td>
+								<td><%= concert.city %></td>
+								<td><%= concert.venue %></td>
+								<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
+							
 					</tr>
+						<% end %>
 				</tbody>
 		</table>
 		</div>

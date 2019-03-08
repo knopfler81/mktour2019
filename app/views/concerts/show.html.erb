@@ -11,7 +11,7 @@
 					<div class="<%= c.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
 						<div class="row">
 							<div class="col-6">
-									<%= c.user.email %>
+									<%= c.user.full_name %>
 							</div>
 							<div class="col-3 offset-3">
 								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>

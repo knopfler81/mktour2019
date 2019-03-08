@@ -35,13 +35,14 @@
 }
 
 	.footer {
-		padding-left: 60px;
+		padding-left: 20px;
+		padding-right: 20px;
 		background: #111;
 	  position: fixed;
 	  bottom: 0;
 	  width: 100%;
+	  font-size: 12px;
 	  height: 70px; /* Set the fixed height of the footer here */
-	  line-height: 60px; /* Vertically center the text there */
 
 	  a {
 	  	color: #fff;
