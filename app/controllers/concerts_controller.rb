@@ -3,6 +3,8 @@ class ConcertsController < ApplicationController
 	def index
 		filter_concerts if params[:query].present?
 		@concerts ||= Concert.order('show_date ASC')
+
+
 	end
 
 	def show
