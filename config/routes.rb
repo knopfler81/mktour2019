@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/home", to: "pages#home"
   
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
 
   resources :concerts do
 		resources :comments
