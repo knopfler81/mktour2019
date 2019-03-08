@@ -14,7 +14,7 @@
 									<%= c.user.email %>
 							</div>
 							<div class="col-3 offset-3">
-								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+								 <%= l(c.created_at, format: '%d/%m/%y - %H:%M:%S') %> - <%= link_to "Modifier", edit_concert_comment_path(c), remote: true %>
 							</div>
 						</div>
 						<hr>
