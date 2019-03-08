@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  devise_for :users, :controllers => { registrations: 'registrations' }
-  root to: 'concerts#index'
+  root to:  "pages#landing"
 
   get "/home", to: "pages#home"
   get "/landing", to: "pages#landing"
