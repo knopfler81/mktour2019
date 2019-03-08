@@ -11,7 +11,9 @@ class CommentsController < ApplicationController
 		@comment =  @concert.comments.new(params_comment)
 		@comment.user = current_user
 		if @comment.save
-			redirect_to @concert
+			redirect_to @concert, notice: "Commentaire envoyé"
+		else
+			redirect_to @concert, alert: "Hey il faut écrire quelque chose pour valider le commentaire ^^"
 		end
 	end
 
