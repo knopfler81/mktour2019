@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <%= set_meta_tags og: {
+        title: '🎸 MK-Tour-2019 🎸',
+        description: ' ❤️ Retrouvez les fans de MK qui font les mêmes concerts que vous ❤️',
+        image: "https://s3-eu-west-1.amazonaws.com/markinsum/P1110222.JPG",
+        url: "https://mktour2019.herokuapp.com"}
+    %>
+
+    <title>MK-Tour-2019</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>

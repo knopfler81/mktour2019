@@ -18,6 +18,8 @@ gem 'webpacker'
 gem 'turbolinks', '~> 5'
 
 gem 'jquery-rails'
+gem 'meta-tags'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
