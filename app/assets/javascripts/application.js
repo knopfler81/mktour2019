@@ -1,7 +1,9 @@
+//= require jquery3
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree 
+
 
 $(document).on('turbolinks:load', function() {
 

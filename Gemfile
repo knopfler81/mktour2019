@@ -10,19 +10,28 @@ gem 'rails', '5.2.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'turbolinks', '~> 5'
 
-gem 'jquery-rails'
+
 gem 'meta-tags'
 
 gem 'fog'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
+
+
+
+
+#styles
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'font-awesome-sass', '~> 5.0.9'
 
 
 group :development do
