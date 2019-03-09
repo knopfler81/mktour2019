@@ -19,7 +19,7 @@
                 required: true,
                 input_html: { autocomplete: "nom" }%>
 
-    <%= f.file_field :avatar %>
+    <%= f.input :avatar, id: "button", hint: "Votre avatar", label: false %>
 
     <%= f.input :password, label: false, placeholder: "Mot de passe",
                 required: true,
@@ -36,7 +36,7 @@
       <div class="col-3">
           <%= f.button :submit, "Valider inscription", class: " btn btn-success" %>
           <br> <br>
-          <%= link_to "Déjà inscrit? ", new_session_path(resource_name) %>
+          <%= link_to "Déjà inscrit? ", new_session_path(resource_name), class: "btn btn-primary" %>
         
       </div>
     </div>
