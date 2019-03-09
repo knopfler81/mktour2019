@@ -65,37 +65,17 @@
 	background-color: #fff;
 }
 
-	.footer {
-		padding-top: 20px;
-		padding-left: 20px;
-		padding-right: 20px;
-		background: #111;
-	  position: fixed;
-	  bottom: 0;
-	  width: 100%;
-	  font-size: 12px;
-	  height: 70px; /* Set the fixed height of the footer here */
 
-	  a {
-	  	color: #fff;
+.fa-heart {
+	color: #006DE7;
+	font-size: 40px;
+}
 
-
-	  }
-
-	  a:hover {
-	  	text-decoration: none;
-	  }
-		.fa-heart {
-			color: #006DE7;
-			font-size: 20px;
-		}
-
-		.fa-heart:hover {
-			color: red;
-			font-size: 30px;
-			transition: 0.5s;
-		}
-	}
+.fa-heart:hover {
+	color: red;
+	font-size: 40px;
+	transition: 0.5s;
+}
 
 
 section {
