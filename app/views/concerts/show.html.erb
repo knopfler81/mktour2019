@@ -27,17 +27,17 @@
 				<% @concert.comments.order('created_at DESC').each do |comment| %>
 					<div class="<%= comment.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
 						<div class="row">
-							<div class="col-1">
+							<div class="col-2">
 		           <% if comment.user.avatar.present? %>
 		           	<%= image_tag(comment.user.avatar.url, class: "avatar") %>
 		           <% else %>
 		             <%= image_tag("https://s3-eu-west-1.amazonaws.com/mktour2019/avatar.png", class: "avatar") %>
 		          <% end %>
 							</div>
-							<div class="col-5">
+							<div class="col-3">
 									<%= comment.user.full_name %>
 							</div>
-							<div class="col-3 offset-3">
+							<div class="col-3 offset-4">
 								 <%= l(comment.created_at, format: '%d/%m/%y - %H:%M:%S') %>	 
 							</div>
 						</div>
@@ -55,17 +55,17 @@
 								<% comment.replies.each do |reply| %>
 									<div class="<%= reply.user_id == (current_user && current_user.id) ? 'my-reply' : 'reply'  %>">
 										<div class="row">
-											<div class="col-1">
+											<div class="col-3">
 												 <% if reply.user.avatar.present? %>
 												 	<%= image_tag(reply.user.avatar.url, class: "avatar") %>
 												 <% else %>
 												   <%= image_tag("https://s3-eu-west-1.amazonaws.com/mktour2019/avatar.png", class: "avatar") %>
 												<% end %>
 											</div>
-											<div class="col-5">
+											<div class="col-3">
 												<%= reply.user.full_name %>
 											</div>
-											<div class="col-3 offset-3">
+											<div class="col-3 offset-2">
 												<%= l(reply.created_at, format: '%d/%m/%y - %H:%M:%S') %>
 											</div>
 										</div>
