@@ -4,7 +4,6 @@
 //= require turbolinks
 //= require_tree 
 
-
 $(document).on('turbolinks:load', function() {
 
 		$('#going').on('click', function(){
