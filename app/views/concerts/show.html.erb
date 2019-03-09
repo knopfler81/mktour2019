@@ -79,8 +79,10 @@
 								<% end %>
 							</div>
 						</div>
+						<% if current_user %>
+							<% if @concert.users.include?(current_user) %>
 							<%= simple_form_for([@concert, comment, @reply])	 do |f| %>
-						<div class="row">
+							<div class="row">
 								<div class="col-12 col-md-10">
 										<%= f.input :content, placeholder: "Votre réponse", label: false, input_html: { rows: 1, class: 'input-reply' } %>
 								</div>	
@@ -88,6 +90,8 @@
 									<%= f.submit "Envoyer", class: "btn btn-primary btn-lg input-reply-btn" %>
 								</div>
 							</div>
+							<% end %>
+							<% end %>
 							<% end %>
 					</div>
 					<br><br>
