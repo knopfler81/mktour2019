@@ -12,6 +12,12 @@
 @import "components/index";
 @import "pages/index";
 
+tr:hover {
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: #5555!important;
+}
+
 
 
 .avatar {
@@ -47,7 +53,7 @@
 .comments {
 		padding: 20px;
 		background-color :#fff;
-		margin-bottom: 20px;
+		margin-bottom: -10px;
 		border-radius: 20px;
 }
 
@@ -55,7 +61,7 @@
 .my-comments {
 	padding: 20px;
 	background-color: #fff;
-	margin-bottom: 20px;
+	margin-bottom: -10px;
 	border-radius: 20px;
 
 }
@@ -158,6 +164,20 @@ section {
 }
 
 @media screen and (max-width : 720px){
+
+	.my-reply {
+		background-color: #86C6FEFF;
+		padding: 30px;
+		border-radius: 20px 20px 0px 20px;
+		margin: 10px 0px 10px 30px;
+	}
+
+	.reply {
+		background-color: #94FF93FF;
+		padding: 30px;
+		border-radius: 20px 20px 20px 0px;
+		margin: 10px 30px 10px 0px;
+	}
   .welcome-text{
   	top: 30%;
   	 	h1 {

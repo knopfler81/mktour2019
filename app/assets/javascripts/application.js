@@ -13,6 +13,10 @@ $(document).on('turbolinks:load', function() {
 		$('#not-going').on('click', function(){
 			location.reload();
 		})
+		
+	$("tr").click(function() {
+	  window.location = $(this).data("link")
+	})
 
 });
 
