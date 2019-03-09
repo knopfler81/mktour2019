@@ -1,8 +1,6 @@
 //= require jquery
-//= require best_in_place
 //= require rails-ujs
 //= require turbolinks
-//= require best_in_place.jquery-ui
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
