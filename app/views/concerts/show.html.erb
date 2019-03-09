@@ -13,35 +13,90 @@
 				<div class="col-12">
 					<% if @concert.users.include?(current_user) %>
 						<%= simple_form_for([@concert, @comment]) do |f| %>
-							<%= f.input :content, as: :text, placeholder: "Votre commentaire", label: false,  input_html: { rows: 4} %>
+							<%= f.input :title, placeholder: "Donner un titre à votre commentaire / annonce",  label: false , required: true %>
+							<%= f.input :content, as: :text, placeholder: "Votre commentaire", label: false,  input_html: { rows: 4, class: 'input-comment'} %>
 							<%= f.submit "Envoyer", class: "btn btn-success" %>
 						<% end %>
 					<% end %>
 					<br>
 				</div>
 			</div>
+
+
 			<% if @concert.comments.any? %>
 				<% @concert.comments.order('created_at DESC').each do |comment| %>
 					<div class="<%= comment.user_id == (current_user && current_user.id) ? 'my-comments' : 'comments'  %>">
 						<div class="row">
-							<div class="col-6">
+							<div class="col-1">
+		           <% if comment.user.avatar.present? %>
+		           	<%= image_tag(comment.user.avatar.url, class: "avatar") %>
+		           <% else %>
+		             <%= image_tag("https://s3-eu-west-1.amazonaws.com/mktour2019/avatar.png", class: "avatar") %>
+		          <% end %>
+							</div>
+							<div class="col-5">
 									<%= comment.user.full_name %>
 							</div>
 							<div class="col-3 offset-3">
-								 <%= l(comment.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+								 <%= l(comment.created_at, format: '%d/%m/%y - %H:%M:%S') %>	 
 							</div>
 						</div>
-						<hr>
-						<%= simple_format(comment.content) %>
+						<div class="row">
+							<div class="col-12">
+								<hr>
+								<h3><%= comment.title %></h3>
+								<%= simple_format(comment.content) %>
+								<hr>
+							</div>
+						</div>
+	
+						<div class="row">
+							<div class="col-12">
+								<% comment.replies.each do |reply| %>
+									<div class="<%= reply.user_id == (current_user && current_user.id) ? 'my-reply' : 'reply'  %>">
+										<div class="row">
+											<div class="col-1">
+												 <% if reply.user.avatar.present? %>
+												 	<%= image_tag(reply.user.avatar.url, class: "avatar") %>
+												 <% else %>
+												   <%= image_tag("https://s3-eu-west-1.amazonaws.com/mktour2019/avatar.png", class: "avatar") %>
+												<% end %>
+											</div>
+											<div class="col-5">
+												<%= reply.user.full_name %>
+											</div>
+											<div class="col-3 offset-3">
+												<%= l(reply.created_at, format: '%d/%m/%y - %H:%M:%S') %>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<hr>
+													<%= simple_format(reply.content) %>
+											</div>
+										</div>
+									</div>
+								<% end %>
+							</div>
+						</div>
+							<%= simple_form_for([@concert, comment, @reply])	 do |f| %>
+						<div class="row">
+								<div class="col-12 col-md-10">
+										<%= f.input :content, placeholder: "Votre réponse", label: false, input_html: { rows: 1, class: 'input-reply' } %>
+								</div>	
+								<div class="col-12 col-md-2">
+									<%= f.submit "Envoyer", class: "btn btn-primary btn-lg input-reply-btn" %>
+								</div>
+							</div>
+							<% end %>
 					</div>
+					<br><br>
 				<% end %>
-				<% else %>
+			<% else %>
 				<p>Soyez le premier à commenter</p>
 				
 			<% end %>
-			<br>
-			<br>
-			<br>
+
 		</div>
 
 		<div class="col-12 col-md-2">
@@ -72,6 +127,9 @@
 					<% end %>
 						
 					</ul>
+					<br>
+					<br>
+					<br>
 				</div>
 			<% end %>
 			<% else %>

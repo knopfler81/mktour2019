@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
 
 private
 	def params_comment
-		params.require(:comment).permit(:content, :concert_id)
+		params.require(:comment).permit(:content, :concert_id, :title)
 	end
 
 	def find_concert
