@@ -20,6 +20,9 @@ gem 'turbolinks', '~> 5'
 gem 'jquery-rails'
 gem 'meta-tags'
 
+gem 'fog'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'mini_magick'
 
 
 group :development do

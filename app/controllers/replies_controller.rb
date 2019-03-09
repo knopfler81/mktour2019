@@ -26,6 +26,13 @@ class RepliesController < ApplicationController
 	end
 
 
+	def destroy
+		@reply = Reply.find(params[:id])
+		if @reply.destroy 
+			redirect_to @concert, notice: 'Votre réponse a bien été supprimée'
+		end
+	end
+
 private
 
 	def params_reply

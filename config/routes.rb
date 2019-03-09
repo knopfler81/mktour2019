@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
 
   resources :concerts do
-		resources :comments
+		resources :comments do 
+			resources :replies
+		end
 	  member do
 	    put 'register'
 	    put 'unsubscribe'
