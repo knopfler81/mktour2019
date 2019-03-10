@@ -1,7 +1,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12 col-md-6">
-			<%= @user.full_name %>
+			<br>
+			<div class="row">
+				  <div class="col-2">
+				  	 <% if @user.avatar.present? %>
+				  	  <%= image_tag(@user.avatar.url, class: "avatar") %>
+				  	 <% else %>
+				  	   <%= image_tag("https://s3-eu-west-1.amazonaws.com/mktour2019/avatar.png", class: "navatar") %>
+				  	<% end %>
+				  </div>
+				  <div class="col-10">
+				  	<h3><%= @user.full_name %> va à <%= @user.concerts.count %> concert(s)</h3>
+				  </div>
+			</div>
+		
+			<hr>
+			<ul class="list list-unstyled">
+				<% @user.concerts.each do |concert| %>
+					<li><%= link_to "#{concert.city} #{concert.show_date}", concert_path(concert) %></li>
+				<% end %>
+			</ul>
 		</div>
 		<div class="col-12 col-md-6"></div>
 	</div>

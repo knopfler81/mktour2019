@@ -1,11 +1,14 @@
+<% if current_user && current_user.admin  %>
 <div class="container">
 	<div class="row">
 		<div class="col-12">
+			<br>
 			<ul class="list list-unstyled">
-				<% @users.each do |u| %>
-					<li><%= u.full_name %></li>
+				<% @users.order('created_at DESC').each do |u| %>
+					<li><%= u.full_name %> - [ <%= u.concerts.count %>] </li>
 				<% end %>
 			</ul>
 		</div>
 	</div>
 </div>
+<% end %>

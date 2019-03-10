@@ -14,9 +14,9 @@ $(document).on('turbolinks:load', function() {
 			location.reload();
 		})
 		
-	$("tr").click(function() {
-	  window.location = $(this).data("link")
-	})
+		$("tr").click(function() {
+		  window.location = $(this).data("link")
+		})
 
 });
 
