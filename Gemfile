@@ -25,6 +25,7 @@ gem 'mini_magick'
 
 
 
+gem "awesome_print"   
 
 #styles
 gem 'bootstrap', '~> 4.1.3'
