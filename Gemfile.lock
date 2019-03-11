@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/rails/activerecord-session_store.git
-  revision: d7a918cc2b24b4261fead06538d7d8f8d8b2a1d1
-  specs:
-    activerecord-session_store (1.1.2)
-      actionpack (>= 4.0)
-      activerecord (>= 4.0)
-      multi_json (~> 1.11, >= 1.11.2)
-      rack (>= 1.5.2, < 3)
-      railties (>= 4.0)
-
-GIT
   remote: git://github.com/thoughtbot/capybara-webkit.git
   revision: 77fdac424cd6fdb5aa266b229a888cc58da8e95e
   branch: master
@@ -506,7 +495,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-session_store!
   autoprefixer-rails
   awesome_print
   binding_of_caller
