@@ -3,5 +3,5 @@
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Inscription", new_registration_path(resource_name), class: "btn btn-primary" %><br />
+  <%= link_to "Pas encore de comtpte?", new_registration_path(resource_name), class: "btn btn-primary btn-block" %><br />
 <% end %>

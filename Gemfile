@@ -13,7 +13,7 @@ gem 'autoprefixer-rails'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
-gem 'webpacker'
+
 gem 'turbolinks', '~> 5'
 
 
@@ -34,16 +34,20 @@ gem 'simple_form'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass', '~> 5.0.9'
 
-
-group :development do
-  gem 'web-console', '>= 3.3.0'
-end
-
 group :development, :test do
-  gem 'pry-byebug'
-  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'launchy'
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'capybara'
+  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
+  gem 'rails-controller-testing'
+  gem 'capybara-screenshot'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'binding_of_caller'
 end
