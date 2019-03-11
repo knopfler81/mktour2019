@@ -24,7 +24,7 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick'
 
 
-
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem "awesome_print"   
 
 #styles
