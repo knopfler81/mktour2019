@@ -84,7 +84,7 @@
 							<%= simple_form_for([@concert, comment, @reply])	 do |f| %>
 							<div class="row">
 								<div class="col-12 col-md-10">
-										<%= f.input :content, placeholder: "Votre réponse", label: false, input_html: { rows: 1, class: 'input-reply' } %>
+										<%= f.input :content, placeholder: "Votre réponse, merci de ne pas mentionner les set lists sur ce site SVP", label: false, input_html: { rows: 1, class: 'input-reply' } %>
 								</div>	
 								<div class="col-12 col-md-2">
 									<%= f.submit "Envoyer", class: "btn btn-primary btn-lg input-reply-btn" %>
