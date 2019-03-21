@@ -14,7 +14,7 @@
 					<% if @concert.users.include?(current_user) %>
 						<%= simple_form_for([@concert, @comment]) do |f| %>
 							<%= f.input :title, placeholder: "Donner un titre à votre commentaire / annonce",  label: false , required: true %>
-							<%= f.input :content, as: :text, placeholder: "Votre commentaire", label: false,  input_html: { rows: 4, class: 'input-comment'} %>
+							<%= f.input :content, as: :text, placeholder: "Merci de ne pas mentionner les set lists sur ce site SVP", label: false,  input_html: { rows: 4, class: 'input-comment'} %>
 							<%= f.submit "Envoyer", class: "btn btn-success" %>
 						<% end %>
 					<% end %>
