@@ -33,7 +33,7 @@
 			<table class="table table-striped">
 
 				<tbody>
-						<% @concerts.each do |concert| %>
+						<% @concerts.where('show_date >=?',  Date.today).each do |concert| %>
 					  <tr data-link=" <%=concert_path(concert) %>">
 					  		<td><b><%= concert.users.count %></b>  <i class="fas fa-users"></i> </td>
 								<td><%= l(concert.show_date, format: '%d/%m/%y') %></td>
